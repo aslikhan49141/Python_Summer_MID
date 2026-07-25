@@ -89,7 +89,7 @@ class GradingApp:
         left = tk.Frame(header, bg=COLORS["header"])
         left.pack(side="left", padx=28, pady=12)
         tk.Label(
-            left, text="\u2756  Student Grading System",
+            left, text="\u2756  Student Grade Management System",
             font=F_TITLE, bg=COLORS["header"], fg="white",
         ).pack(anchor="w")
 
