@@ -550,4 +550,7 @@ class GradingApp:
                  font=F_SMALL, bg=COLORS["bg"], fg=COLORS["muted"]).pack(pady=(0, 12))
 
 
-
+def launch():
+    root = tk.Tk()
+    GradingApp(root)
+    root.mainloop()
