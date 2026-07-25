@@ -1,0 +1,40 @@
+{
+  "students": [
+    {
+      "student_id": "S001",
+      "name": "Md Shakil Hossain",
+      "subject": "Python",
+      "marks": 100.0
+    },
+    {
+      "student_id": "S002",
+      "name": "Alif Shahriar Likhan",
+      "subject": "Python",
+      "marks": 100.0
+    },
+    {
+      "student_id": "S003",
+      "name": "Mashrafi Ibne Zinoor Chowdhury",
+      "subject": "Python",
+      "marks": 100.0
+    },
+    {
+      "student_id": "S004",
+      "name": "Rakib Khan",
+      "subject": "English",
+      "marks": 80.0
+    },
+    {
+      "student_id": "S005",
+      "name": "Robiul Islam",
+      "subject": "English",
+      "marks": 32.0
+    },
+    {
+      "student_id": "S007",
+      "name": "Md Siraj Khan",
+      "subject": "English",
+      "marks": 50.0
+    }
+  ]
+}
