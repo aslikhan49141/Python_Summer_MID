@@ -12,15 +12,13 @@ COLORS = {
     }
 
 class GradingApp:
-
     def __init__(self, root):
         self.root = root
         self.manager = GradeManager()
-    self.root.title("Student Grading System")
+        self.root.title("Student Grading System")
         self.root.geometry("1180x760")
         self.root.minsize(1050, 700)
         self.root.configure(bg=COLORS["bg"])
-
         self._setup_styles()
         self._build_header()
         self._build_body()
