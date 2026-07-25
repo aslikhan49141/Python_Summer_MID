@@ -20,3 +20,28 @@ def calculate_grade(marks):
             return grade
     return "F"
 
+def calculate_gpa(marks):
+    for min_marks, _, gpa in GRADE_BANDS:
+        if marks >= min_marks:
+            return gpa
+    return 0.00
+
+def calculate_status(marks):
+    return "Pass" if marks >= PASS_MARK else "Fail"
+
+def compute_statistics(students):
+    if not students:
+        return None
+
+    marks = np.array([s.marks for s in students], dtype=float)
+    pass_count =0;
+    fail_count =0;
+    for s in students:
+        if s.status == "Pass":
+            pass_count += 1
+        else:
+            fail_count += 1
+
+    
+
+
