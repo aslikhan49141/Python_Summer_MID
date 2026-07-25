@@ -42,6 +42,24 @@ def compute_statistics(students):
         else:
             fail_count += 1
 
-    
+    grade_distributuion = {}
+    for s in students:
+        grade_distributuion[s.grade] = grade_distributuion.get(s.grade, 0) + 1
 
+    subjects = set(s.subject for s in students)
+    unique_ids = set(s.student_id for s in students)
+
+    return {
+        "total":len(unique_ids),
+        "records": len(students),
+        "average": float(np.mean(marks)),
+        "highest": float(np.max(marks)),
+        "lowest": float(np.min(marks)),
+        "average_gpa": float(np.mean(np.array([s.gpa for s in students]))),
+        "pass_count": pass_count,
+        "fail_count": fail_count,
+        "pass_rate": (pass_count / len(students)) * 100,
+        "grade_distribution": grade_distribution,
+        "unique_subjects": sorted(subjects),
+    }
 
