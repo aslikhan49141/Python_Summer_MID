@@ -14,11 +14,13 @@ GRADE_BANDS = (
 
 PASS_MARK = 50
 
+
 def calculate_grade(marks):
     for min_marks, grade, _ in GRADE_BANDS:
         if marks >= min_marks:
             return grade
     return "F"
+
 
 def calculate_gpa(marks):
     for min_marks, _, gpa in GRADE_BANDS:
@@ -26,31 +28,34 @@ def calculate_gpa(marks):
             return gpa
     return 0.00
 
+
 def calculate_status(marks):
     return "Pass" if marks >= PASS_MARK else "Fail"
+
 
 def compute_statistics(students):
     if not students:
         return None
 
     marks = np.array([s.marks for s in students], dtype=float)
-    pass_count =0;
-    fail_count =0;
+
+    pass_count = 0
+    fail_count = 0
     for s in students:
         if s.status == "Pass":
             pass_count += 1
         else:
             fail_count += 1
 
-    grade_distributuion = {}
+    grade_distribution = {}
     for s in students:
-        grade_distributuion[s.grade] = grade_distributuion.get(s.grade, 0) + 1
+        grade_distribution[s.grade] = grade_distribution.get(s.grade, 0) + 1
 
     subjects = set(s.subject for s in students)
     unique_ids = set(s.student_id for s in students)
 
     return {
-        "total":len(unique_ids),
+        "total": len(unique_ids),
         "records": len(students),
         "average": float(np.mean(marks)),
         "highest": float(np.max(marks)),
@@ -62,4 +67,3 @@ def compute_statistics(students):
         "grade_distribution": grade_distribution,
         "unique_subjects": sorted(subjects),
     }
-
