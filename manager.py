@@ -79,4 +79,21 @@ class GradeManager:
     def save_to_file(self):
         return file_handler.save_students(self.students)
 
+    def load_from_file(self, path=None):
+            records = file_handler.load_students(path) if path else file_handler.load_students()
+            self.students = []
+            self.used_keys = set()
+            skipped = 0
+            for record in records:
+                try:
+                    student = Student.from_dict(record)
+                    key = (student.student_id, student.subject)
+                    if key in self.used_keys:
+                        skipped += 1
+                        continue
+                    self.students.append(student)
+                    self.used_keys.add(key)
+                except (KeyError, ValueError, TypeError):
+                    skipped += 1
+            return len(self.students), skipped
     
